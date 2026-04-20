@@ -1,0 +1,21 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="taxCalculator" class="org.revature.payroll.IncomeTaxCalculator"/>
+
+    <bean id="bonusScheme" class="org.revature.payroll.PerformanceBonus"/>
+
+
+    <bean id="payrollProcessor" class="org.revature.payroll.PayrollProcessor">
+
+        <constructor-arg ref="taxCalculator"/>
+        <constructor-arg value="TechCorp Solutions"/>
+        <constructor-arg value="2026"/>
+
+
+        <property name="bonusScheme" ref="bonusScheme"/>
+    </bean>
+
+</beans>
